@@ -15,32 +15,47 @@ class AddTransactionFragment : BottomSheetDialogFragment() {
         super.onCreate(savedInstanceState)
     }
 
-    var binding: FragmentAddTransactionBinding? = null
+    private var binding: FragmentAddTransactionBinding? = null
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddTransactionBinding.inflate(inflater);
 
-        binding!!.Incomebtn.setOnClickListener {
-            binding!!.Incomebtn.background = context?.getDrawable(R.drawable.income_selector);
-            binding!!.expensebtn.background = context?.getDrawable(R.drawable.default_select);
-            binding!!.expensebtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.textcolor))
-            binding!!.Incomebtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.Green))
+        binding?.Incomebtn?.setOnClickListener {
+            binding?.Incomebtn?.background = context?.getDrawable(R.drawable.income_selector);
+            binding?.expensebtn?.background = context?.getDrawable(R.drawable.default_select);
+            binding?.expensebtn?.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.textcolor
+                )
+            )
+            binding?.Incomebtn?.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.Green
+                )
+            )
 
 
         }
 
-        binding!!.expensebtn.setOnClickListener {
-            binding!!.Incomebtn.background = context?.getDrawable(R.drawable.default_select);
-            binding!!.expensebtn.background = context?.getDrawable(R.drawable.expene_selector);
-            binding!!.expensebtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.Red))
-            binding!!.Incomebtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.textcolor))
+        binding?.expensebtn?.setOnClickListener {
+            binding?.Incomebtn?.background = context?.getDrawable(R.drawable.default_select);
+            binding?.expensebtn?.background = context?.getDrawable(R.drawable.expene_selector);
+            binding?.expensebtn?.setTextColor(ContextCompat.getColor(requireContext(), R.color.Red))
+            binding?.Incomebtn?.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.textcolor
+                )
+            )
         }
 
-        binding!!.date.setOnClickListener {
+        binding?.date?.setOnClickListener {
             val datePickerDialog = DatePickerDialog(requireContext())
             datePickerDialog.show()
         }
@@ -49,5 +64,11 @@ class AddTransactionFragment : BottomSheetDialogFragment() {
 
 
         return binding!!.root
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }
