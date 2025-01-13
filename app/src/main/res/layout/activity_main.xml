@@ -43,6 +43,7 @@
             app:srcCompat="@drawable/next" />
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@color/Blue"
